@@ -6,7 +6,7 @@ import gnu.io.SerialPortEventListener;
 import com.neo.serialException.*;
 
 /**
- * 监测数据显示类
+ * 监测数据测试类
  * 
  * @author zy
  *
