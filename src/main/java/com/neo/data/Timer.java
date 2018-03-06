@@ -1,4 +1,4 @@
-package com.neo.data;
+/*package com.neo.data;
 
 import java.util.Date;
 import java.util.Random;
@@ -37,3 +37,4 @@ public class Timer {
 		}
 	}
 }
+*/
