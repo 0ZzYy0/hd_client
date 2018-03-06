@@ -58,7 +58,7 @@ public class Test {
 
 					case SerialPortEvent.DATA_AVAILABLE: // 1 串口存在可用数据
 
-						// System.out.println("found data");
+						//System.out.println("found data");
 						byte[] data = null;
 
 						try {
@@ -66,15 +66,15 @@ public class Test {
 								System.out.println("串口对象为空！监听失败！");
 							} else {
 								data = SerialTool.readFromPort(serialPort); // 读取数据，存入字节数组
-								// System.out.println(new String(data));
+								System.out.println(new String(data,"ascii"));
 
 								// 自定义解析过程
 								if (data == null || data.length < 1) { // 检查数据是否读取正确
 									System.out.println("读取数据过程中未获取到有效数据！请检查设备或程序！");
 								} else {
 									// 解析数据
-									String str = new String(data, "UTF-8");
-									System.out.println(str);
+									//String str = new String(data, "UTF-8");
+									//System.out.println(str);
 								}
 							}
 

@@ -43,9 +43,7 @@ public class MyApplicationRunner implements ApplicationRunner {
 			serialPort = SerialTool.openPort(PORT_NAME, BPS);
 			// 在该串口对象上添加监听器
 			SerialPortEventListener serialListener = new SerialPortEventListener() {
-				/**
-				 * 处理监控到的串口事件
-				 */
+				
 				public void serialEvent(SerialPortEvent serialPortEvent) {
 
 					switch (serialPortEvent.getEventType()) {
@@ -81,7 +79,7 @@ public class MyApplicationRunner implements ApplicationRunner {
 								System.out.println("串口对象为空！监听失败！");
 							} else {
 								data = SerialTool.readFromPort(serialPort); // 读取数据，存入字节数组
-								// System.out.println(new String(data));
+								System.out.println(new String(data));
 
 								// 自定义解析过程
 								if (data == null || data.length < 1) { // 检查数据是否读取正确
@@ -90,7 +88,7 @@ public class MyApplicationRunner implements ApplicationRunner {
 									// 解析数据
 									String str = new String(data, "UTF-8");
 									System.out.println(str);
-									ParTempEntity par = new ParTempEntity();
+/*									ParTempEntity par = new ParTempEntity();
 									par.setDeviceId(Long.parseLong("1"));
 									par.setTempDate(new Date());
 									par.setTempName("温度");
@@ -99,8 +97,7 @@ public class MyApplicationRunner implements ApplicationRunner {
 											"http://r18671e836.51mypc.cn:39312/partemp/save", par, R.class);
 									if (responseEntity.getStatusCodeValue() == 200) {
 										System.out.println("接口调用成功！");
-									}
-
+									}*/
 								}
 							}
 
