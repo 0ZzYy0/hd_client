@@ -1,5 +1,6 @@
 package com.test;
 import java.io.BufferedReader;
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -28,12 +29,14 @@ public class TcpServerThread extends Thread {
         try {
             //获取输入流，并读取客户端信息
             is = socket.getInputStream();
-            isr = new InputStreamReader(is);
-            br = new BufferedReader(isr);
-            String info=null;
+            //isr = new InputStreamReader(is);
+            //br = new BufferedReader(isr);
+            String str = new String(readStream(is)); 
+            System.out.println(str);
+/*            String info=null;
             while((info=br.readLine())!=null){//循环读取客户端的信息
                 System.out.println("我是服务器，客户端说："+info);
-            }
+            }*/
             socket.shutdownInput();//关闭输入流
             //获取输出流，响应客户端的请求
             os = socket.getOutputStream();
@@ -43,7 +46,10 @@ public class TcpServerThread extends Thread {
         } catch (IOException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
-        }finally{
+        } catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally{
             //关闭资源
             try {
                 if(pw!=null)
@@ -63,4 +69,20 @@ public class TcpServerThread extends Thread {
             }
         }
     }
+    
+    /** 
+     * @功能 读取流 
+     * @param inStream 
+     * @return 字节数组 
+     * @throws Exception 
+     */
+    public static byte[] readStream(InputStream inStream) throws Exception {
+        int count = 0;  
+        while (count == 0) {  
+            count = inStream.available();  
+        }  
+        byte[] b = new byte[count];  
+        inStream.read(b);  
+        return b;  
+    }  
 }
