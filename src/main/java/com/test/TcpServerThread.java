@@ -8,6 +8,8 @@ import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.net.Socket;
 
+import com.neo.util.DigitalTrans;
+
 /*
  * 服务器线程处理类
  */
@@ -29,19 +31,19 @@ public class TcpServerThread extends Thread {
         try {
             //获取输入流，并读取客户端信息
             is = socket.getInputStream();
-            //isr = new InputStreamReader(is);
-            //br = new BufferedReader(isr);
-            String str = new String(readStream(is)); 
-            System.out.println(str);
-/*            String info=null;
+            isr = new InputStreamReader(is);
+            br = new BufferedReader(isr);
+            //String str = DigitalTrans.byte2hex(readStream(is)); 
+            //System.out.println(str);
+            String info=null;
             while((info=br.readLine())!=null){//循环读取客户端的信息
                 System.out.println("我是服务器，客户端说："+info);
-            }*/
+            }
             socket.shutdownInput();//关闭输入流
             //获取输出流，响应客户端的请求
             os = socket.getOutputStream();
             pw = new PrintWriter(os);
-            pw.write("欢迎您！");
+            pw.write("117");
             pw.flush();//调用flush()方法将缓冲输出
         } catch (IOException e) {
             // TODO Auto-generated catch block

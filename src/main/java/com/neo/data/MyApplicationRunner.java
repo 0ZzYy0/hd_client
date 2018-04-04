@@ -30,7 +30,7 @@ public class MyApplicationRunner implements ApplicationRunner {
 
 	private static SerialPort serialPort = null;
 
-	private static final String PORT_NAME = "COM3";
+	private static final String PORT_NAME = "COM2";
 
 	private static final int BPS = 9600;
 

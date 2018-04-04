@@ -3,6 +3,8 @@ package com.test;
 import java.io.*;
 import java.net.*;
 
+import com.neo.util.DigitalTrans;
+
 
 public class TcpServer {
 
@@ -56,7 +58,7 @@ class ServerOne extends Thread {
             while(true) {
                 String str = in.readLine();
                 if(str == null || str.equals("end")) break;
-                System.out.println("Server: receive information"+str);
+                System.out.println("Server: receive information："+str);
                 out.println("Echo: "+str);
             }
             System.out.println("closing....");

@@ -17,7 +17,7 @@ public class Test {
 
 	private static SerialPort serialPort = null;
 
-	private static final String PORT_NAME = "COM3";
+	private static final String PORT_NAME = "COM1";
 
 	private static final int BPS = 9600;
 
@@ -66,7 +66,7 @@ public class Test {
 								System.out.println("串口对象为空！监听失败！");
 							} else {
 								data = SerialTool.readFromPort(serialPort); // 读取数据，存入字节数组
-								System.out.println(new String(data,"ascii"));
+								System.out.println(data);
 
 								// 自定义解析过程
 								if (data == null || data.length < 1) { // 检查数据是否读取正确
